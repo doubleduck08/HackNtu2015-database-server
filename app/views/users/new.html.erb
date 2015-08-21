@@ -1,0 +1,7 @@
+<%= simple_form_for @user, url: users_path,
+    html: {method: :post, class: 'form-vertical' } do |f| %>
+
+  <%= f.input :name %>
+  <%= f.submit "Create", class: "btn btn-primary" %>
+
+<% end %>

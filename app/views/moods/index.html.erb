@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="col-xs-12">
+    <h3>Users List</h3>
+
+
+    <table class="table table-condensed table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>User name</th>
+          <th>Mood</th>
+          <th>Sentance</th>
+          <th>Location</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @moods.each do |mood| %>
+          <tr>
+            <td><%= mood.id %></td>
+            <td><%= mood.user.nil? ? mood.user_id : mood.user.name %></td>
+            <td><%= mood.mood_type.name %></td>
+            <td><%= mood.sentence %></td>
+            <td><%= "(#{mood.locationX}, #{mood.locationY})" %></td>
+            <td><%= link_to "delete", mood_path(mood), method: "delete", data: { confirm: "Are you sure?" } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to 'New Mood', :controller => 'moods', :action => 'new' %>
+
+  </div>
+</div>

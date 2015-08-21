@@ -1,0 +1,2 @@
+module MoodTypesHelper
+end

@@ -1,0 +1,12 @@
+<%= simple_form_for @mood, url: moods_path,
+    html: {method: :post, class: 'form-vertical' } do |f| %>
+
+  <%= f.input :user_id %>
+  <%= f.input :mood_type_id, as: :select, collection: MoodType.all, include_blank: false %>
+  <%= f.input :sentence %>
+  <%= f.input :locationX %>
+  <%= f.input :locationY %>
+
+  <%= f.submit "Create", class: "btn btn-primary" %>
+
+<% end %>
