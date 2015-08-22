@@ -17,14 +17,20 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.save
 
-    redirect_to :action => :index
+    respond_to do |format|
+      format.html { redirect_to :action => :index }
+      format.json { render status: 500 }
+    end
   end
 
   def destroy
     @user = User.find(params[:id])
     @user.destroy
 
-    redirect_to :action => :index
+    respond_to do |format|
+      format.html { redirect_to :action => :index }
+      format.json { render status: 500 }
+    end
   end
 
 private

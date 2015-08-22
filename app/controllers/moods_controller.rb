@@ -18,14 +18,20 @@ class MoodsController < ApplicationController
     @mood = Mood.new(mood_params)
     @mood.save
 
-    redirect_to :action => :index
+    respond_to do |format|
+      format.html { redirect_to :action => :index }
+      format.json { render status: 500 }
+    end
   end
 
   def destroy
     @mood = Mood.find(params[:id])
     @mood.destroy
 
-    redirect_to :action => :index
+    respond_to do |format|
+      format.html { redirect_to :action => :index }
+      format.json { render status: 500 }
+    end
   end
 
 private
